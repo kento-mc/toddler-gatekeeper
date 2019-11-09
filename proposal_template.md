@@ -25,13 +25,12 @@ I will also use mysql to create the database to store the door-open events.
 
 Networking protocalls
 
-MQTT
+I plan to use MQTT to send messages to subscribers (parents).
 
 IOT Platform
 
-WIA
+I will use WIA to track the door-open events over time.
 
 ## Project Repository
-TODO: Create a repository for your project. You can add this proposal to it!
-
+https://github.com/kento-mc/wit-2019-compsys-02
 
