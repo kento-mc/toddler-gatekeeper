@@ -1,4 +1,4 @@
-# Project Name
+# Project: The Toddler Gate-Keeper
 #### Student Name: Kent Chadwick   Student ID: 20086513
 
 I would like to build a door-opening detector for a children's room using the Raspberry Pi and Sense Hat that performs serveral functions when the door opens. This is motivated by my own experience of my two small children who often manage to get up from their beds and leave the room without making enough noise to activate the baby monitor. 
