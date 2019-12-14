@@ -25,6 +25,7 @@ while True:
 
 	print("x={0}, y={1}, z={2}".format(x, y, z))
 
+        wia.Event.publish(name="door open test", data = motion)
 
 
-	time.sleep(1)
+	time.sleep(5)
