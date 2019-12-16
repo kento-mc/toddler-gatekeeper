@@ -6,6 +6,7 @@ wia = Wia()
 wia.access_token = "d_sk_yxhosMPKxwC9HIg2pZLxi4w3"
 
 sense = SenseHat()
+sense.set_rotation(270)
 sense.clear()
 red = (255,0,0)
 green = (0,255,0)
