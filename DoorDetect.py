@@ -11,7 +11,7 @@ red = (255,0,0)
 green = (0,255,0)
 
 while True:
-  eventCount = 0 # doorOpen event reset
+  doorOpen = False # doorOpen event reset
   motion = sense.get_accelerometer_raw()
 
   x = motion['x']
@@ -24,14 +24,12 @@ while True:
 
   print("x={0}, y={1}, z={2}".format(x, y, z))
 
-  while x > 0.8:
-    if eventCount == 0:
-      wia.Event.publish(name="door open test", data = motion)
-      eventCount = 1
-      sense.show_message("Back to bed kiddo!", text_colour = red)
-      time.sleep(5)
+  while x > 0.8: # door is opened
+    if doorOpen == False: # if door had been closed until while loop was triggered
+      doorOpen = True # set status of door to open
+      wia.Event.publish(name="door open test", data = motion) # publish event
+      sense.show_message("Back to bed kiddo!", text_colour = red) # display message
 
-      motion = sense.get_accelerometer_raw()
-      x = motion['x']
+    x = sense.get_accelerometer_raw()['x'] # check for whether door has been closed
 
   time.sleep(.5)
