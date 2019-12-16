@@ -2,30 +2,36 @@ import  time
 from wia import Wia
 from sense_hat import SenseHat
 
-sense = SenseHat()
-
 wia = Wia()
 wia.access_token = "d_sk_yxhosMPKxwC9HIg2pZLxi4w3"
 
-motion = sense.get_accelerometer_raw()
-
+sense = SenseHat()
+sense.clear()
+red = (255,0,0)
+green = (0,255,0)
 
 while True:
-  #if accel data passes threshold
-    #publish event to wia
-  #motion=sense.get_accelerometer_raw()
-  #print(motion)
-  	x = motion['x']
-	y = motion['y']
-	z = motion['z']
+  eventCount = 0 # doorOpen event reset
+  motion = sense.get_accelerometer_raw()
 
-	x = round(x, 2)
-	y = round(y, 2)
-	z = round(z, 2)
+  x = motion['x']
+  y = motion['y']
+  z = motion['z']
 
-	print("x={0}, y={1}, z={2}".format(x, y, z))
+  x = round(x, 4)
+  y = round(y, 4)
+  z = round(z, 4)
 
-        wia.Event.publish(name="door open test", data = motion)
+  print("x={0}, y={1}, z={2}".format(x, y, z))
 
+  while x > 0.8:
+    if eventCount == 0:
+      wia.Event.publish(name="door open test", data = motion)
+      eventCount = 1
+      sense.show_message("Back to bed kiddo!", text_colour = red)
+      time.sleep(5)
 
-	time.sleep(5)
+      motion = sense.get_accelerometer_raw()
+      x = motion['x']
+
+  time.sleep(.5)
