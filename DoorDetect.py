@@ -15,9 +15,9 @@ sense.clear()
 red = (255,0,0)
 green = (0,255,0)
 
-# create database on DB server (Macbook Pro)
-mysql -uroot -h192.168.0.45 -e "CREATE DATABASE doorOpenDB"
-mysql -uroot -h192.168.0.45 -e "CREATE TABLE doorOpenDB.OpenEvents (doorOpen TIMESTAMP)"
+# create database on DB server (Macbook Pro), if it does not already exist
+mysql -uroot -h192.168.0.45 -e "CREATE DATABASE IF NOT EXISTS doorOpenDB"
+mysql -uroot -h192.168.0.45 -e "CREATE TABLE IF NOT EXISTS doorOpenDB.OpenEvents (doorOpen TIMESTAMP)"
 
 def writeData(x) # function to send data to thingspeak
   conn = urllib2.urlopen(baseURL + '&field1=%s&field2=%s&field3=%s' % (x))
