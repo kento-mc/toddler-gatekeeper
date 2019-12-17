@@ -26,12 +26,12 @@ os.system("mysql -uroot -h192.168.0.45 --password='steviey19' -e \"CREATE TABLE 
 args = len(sys.argv)-1
 
 if args != 0: # if there is a time threshold argument provided
-  wake_up = sys.argv[1]
-  threshold = datetime.datetime.strptime(wake_up, "%H:%M:%S")
+  wake_up = sys.argv[1] # save command line argument to wake_up variable
+  threshold = datetime.datetime.strptime(wake_up, "%H:%M:%S") # convert to datetime format
 
 # store current time in variable
-current_time = time.strftime("%H:%M:%S", time.localtime())
-now = datetime.datetime.strptime(current_time, "%H:%M:%S")
+current_time = time.strftime("%H:%M:%S", time.localtime()) # save current time to current_time string variable
+now = datetime.datetime.strptime(current_time, "%H:%M:%S") # convert to datetime format
 
 def writeData(x): # function to send data to thingspeak
   conn = urllib2.urlopen(baseURL + '&field1=%s' % (x))
@@ -46,7 +46,7 @@ while True:
   y = round(motion['y'], 4)
   z = round(motion['z'], 4)
 
-  # print accelerometer readings to console
+  # print accelerometer readings and time to console for testing purposes
   print("x={0}, y={1}, z={2}".format(x, y, z))
   print(now.time())
 
