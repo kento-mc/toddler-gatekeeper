@@ -5,6 +5,7 @@ import sys
 import urllib2
 from wia import Wia
 from sense_hat import SenseHat
+#from pygame import mixer
 
 wia = Wia()
 wia.access_token = "d_sk_yxhosMPKxwC9HIg2pZLxi4w3"
@@ -17,6 +18,8 @@ sense.set_rotation(270)
 sense.clear()
 red = (255,0,0)
 green = (0,255,0)
+
+#mixer.init() # initiate pygame mixer for audio playback
 
 # create database on DB server (Macbook Pro), if it does not already exist
 os.system("mysql -uroot -h192.168.0.45 --password='steviey19' -e \"CREATE DATABASE IF NOT EXISTS doorOpenDB\"")
@@ -62,11 +65,14 @@ while True:
       wia.Event.publish(name="door open test", data = motion) # publish event to wia
 
       if args == 0: # if no time threshold argument has been provided
+        os.system('mpg123 /home/pi/dev/wit/compsys19/assignments/02/audio-files/back-to-bed.mp3')
         sense.show_message("Back to bed kiddo!", text_colour = red) # display message
       else:
 	if now.time() < threshold.time():
+          os.system('mpg123 /home/pi/dev/wit/compsys19/assignments/02/audio-files/back-to-bed.mp3')
           sense.show_message("Back to bed kiddo!", text_colour = red) # display message
         else:
+          os.system('mpg123 /home/pi/dev/wit/compsys19/assignments/02/audio-files/good-morning.mp3')
 	  sense.show_message("Good morning!", text_colour = green) # display message
 
     x = sense.get_accelerometer_raw()['x'] # check for whether door has been closed
