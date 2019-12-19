@@ -41,9 +41,9 @@ def writeData(x): # function to send data to thingspeak
 
 def LEDs(): # function for LED display
   if args == 0 or now.time() < threshold.time():
-    sense.show_message("Back to bed kiddo!", text_colour = red) # display message
+    sense.show_message("Back to bed kiddo!", scroll_speed = 0.035, text_colour = red) # display message
   else:
-    sense.show_message("Good morning!", text_colour = green) # display message
+    sense.show_message("Good morning!", scroll_speed = 0.035, text_colour = green) # display message
 
 def audio(): # function for audio playback via bluetooth
   if args == 0 or now.time() < threshold.time():
@@ -74,8 +74,8 @@ while True:
 
       wia.Event.publish(name="door open test", data = motion) # publish event to wia
 
-      Process(target=LEDs).start()
-      Process(target=audio).start()
+      Process(target=LEDs).start() # run LED process
+      Process(target=audio).start() # run audio process
 
     x = sense.get_accelerometer_raw()['x'] # check for whether door has been closed
 
