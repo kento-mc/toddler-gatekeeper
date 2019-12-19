@@ -3,6 +3,7 @@ import datetime
 import os
 import sys
 from multiprocessing import Process
+from contextlib import contextmanager
 import urllib2
 from wia import Wia
 from sense_hat import SenseHat
@@ -13,6 +14,7 @@ wia.access_token = "d_sk_yxhosMPKxwC9HIg2pZLxi4w3"
 WRITE_API_KEY='ON0J9PUVWMEQZ9RH'
 baseURL='https://api.thingspeak.com/update?api_key=%s' % WRITE_API_KEY
 
+# instnsiate SenseHat object and apply settings
 sense = SenseHat()
 sense.set_rotation(270)
 sense.clear()
@@ -47,9 +49,9 @@ def LEDs(): # function for LED display
 
 def audio(): # function for audio playback via bluetooth
   if args == 0 or now.time() < threshold.time():
-    os.system('mpg123 /home/pi/dev/wit/compsys19/assignments/02/audio-files/back-to-bed.mp3')
+    os.system('mpg123 -q /home/pi/dev/wit/compsys19/assignments/02/audio-files/back-to-bed.mp3')
   else:
-    os.system('mpg123 /home/pi/dev/wit/compsys19/assignments/02/audio-files/good-morning.mp3')
+    os.system('mpg123 -q /home/pi/dev/wit/compsys19/assignments/02/audio-files/good-morning.mp3')
 
 while True:
   doorOpen = False # doorOpen event reset
@@ -67,6 +69,7 @@ while True:
     if doorOpen == False: # if door had been closed until while loop was triggered
       doorOpen = True # set status of door to open
 
+      print("\nDoor Open!\n")
       # save door open event timestamp to DB server
       os.system("mysql -h 192.168.0.45 -uroot --password='steviey19' -e \"insert into doorOpenDB.OpenEvents(doorOpen) VALUES(CURRENT_TIMESTAMP)\"")
 
@@ -74,8 +77,9 @@ while True:
 
       wia.Event.publish(name="door open test", data = motion) # publish event to wia
 
-      Process(target=LEDs).start() # run LED process
-      Process(target=audio).start() # run audio process
+      if __name__ == '__main__':
+        Process(target=LEDs).start() # run LED process
+        Process(target=audio).start() # run audio process
 
     x = sense.get_accelerometer_raw()['x'] # check for whether door has been closed
 
