@@ -12,7 +12,7 @@ The Toddler Gatekeeper also uses the functionality of the Sense Hat to communica
 
 
 
-Local Database implementation
+#### Remote Database implementation
 
 I set up a new database called doorOpenDB on my laptop to store records of doorOpen events. 
 
@@ -24,3 +24,12 @@ CREATE USER 'root'@'192.168.0.143' IDENTIFIED BY 'my_password';
 
 Then I was able to grant privileges:
 GRANT ALL PRIVILEGES ON *.* TO root@192.168.0.143 WITH GRANT OPTION;
+
+#### Audio player implementation
+
+dafads
+
+#### Bluetooth implementation
+
+https://unix.stackexchange.com/questions/96693/connect-to-a-bluetooth-device-via-terminal
+https://computingforgeeks.com/connect-to-bluetooth-device-from-linux-terminal/
