@@ -75,7 +75,7 @@ while True:
 
       writeData(x) # send data to thingspeak
 
-      wia.Event.publish(name="door open", data = now.time()) # publish event to wia
+      wia.Event.publish(name="door open", data = str(now.time())) # publish event to wia
 
       if __name__ == '__main__':
         Process(target=LEDs).start() # run LED process
