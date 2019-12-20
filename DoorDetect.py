@@ -63,19 +63,19 @@ while True:
 
   # print accelerometer readings and time to console for testing purposes
   print("x={0}, y={1}, z={2}".format(x, y, z))
-  print(now.time())
 
   while x > 0.95: # door is opened
     if doorOpen == False: # if door had been closed until while loop was triggered
       doorOpen = True # set status of door to open
 
-      print("\nDoor Open!\n")
+      print("\nDoor Open at {}!\n".format(now.time()))
+
       # save door open event timestamp to DB server
       os.system("mysql -h 192.168.0.45 -uroot --password='steviey19' -e \"insert into doorOpenDB.OpenEvents(doorOpen) VALUES(CURRENT_TIMESTAMP)\"")
 
       writeData(x) # send data to thingspeak
 
-      wia.Event.publish(name="door open test", data = motion) # publish event to wia
+      wia.Event.publish(name="door open", data = now.time()) # publish event to wia
 
       if __name__ == '__main__':
         Process(target=LEDs).start() # run LED process
