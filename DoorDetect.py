@@ -65,7 +65,7 @@ while True:
   print("x={0}, y={1}, z={2}".format(x, y, z))
   print(now.time())
 
-  while x > 0.8: # door is opened
+  while x > 0.95: # door is opened
     if doorOpen == False: # if door had been closed until while loop was triggered
       doorOpen = True # set status of door to open
 
