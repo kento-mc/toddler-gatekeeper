@@ -1,5 +1,4 @@
 # The Toddler Gatekeeper
-## wit-2019-compsys-02: IOT Assignment using Raspberry Pi and Sense Hat
 
 [Original Proposal](https://github.com/kento-mc/wit-2019-compsys-02/blob/master/proposal.md "Project Proposal")
 
