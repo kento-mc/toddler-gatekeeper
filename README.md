@@ -34,12 +34,12 @@ To mount your Raspberry Pi and Sense Hat to the wall and door, see the instructi
   
 8. Open the door to trigger the script and you will see:
   
-        a. The LEDs display the message specified in the script. Either 
-        b. The bluetooth speaker play the corresponding audio message.
-        c. The event will be logged to the remote database.
-        d. The event will be logged on Wia or Thingspeak, depending on your settings.
-        e. A notification to your personal device of the type you prefer based on your Wia or Thingspeak settings.
-        f. A terminal notification that the door is open and the timestamp.
+  * The LEDs display the message specified in the script. Either 
+  * The bluetooth speaker play the corresponding audio message.
+  * The event will be logged to the remote database.
+  * The event will be logged on Wia or Thingspeak, depending on your settings.
+  * A notification to your personal device of the type you prefer based on your Wia or Thingspeak settings.
+  * A terminal notification that the door is open and the timestamp.
   
 9. Closing the door will re-arm the Gatekeeper. It will continue to run until the script has been terminated.
 
