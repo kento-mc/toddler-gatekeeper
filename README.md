@@ -68,7 +68,7 @@ Before running the DoorDetect.py script:
 
 Information on using mpg123:
 
-   * (https://opensource.com/life/16/8/3-command-line-music-players-linux)
+   * https://opensource.com/life/16/8/3-command-line-music-players-linux
 
 
 ## Bluetooth implementation
