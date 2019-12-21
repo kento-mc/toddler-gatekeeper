@@ -13,7 +13,9 @@ Ensure you have the necessary packages for the Sense Hat installed on your Raspb
 
 To mount your Raspberry Pi and Sense Hat to the wall and door, see the instructions[HERE](https://drive.google.com/open?id=1fzZrt7k5KipFu2s-yZfC-tg-IWoR8rIe "How to set up the Gatekeeper"):
 
+<div>
 <iframe src="https://drive.google.com/file/d/1fzZrt7k5KipFu2s-yZfC-tg-IWoR8rIe/preview" width="640" height="480"></iframe>
+</div>
 
 1. Save the script DoorDetect.py and the audio-files directory to a directory of your choice on the Raspberry Pi.
 2. Amend the portions that contain your personal Wia access token, Thingspeak write API key, remote database host IP, path to audio-files directory, etc. You may also wish to customize the messages to be displayed on the Sense Hat LEDs
