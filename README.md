@@ -1,7 +1,7 @@
 # The Toddler Gatekeeper
 ## wit-2019-compsys-02: IOT Assignment using Raspberry Pi and Sense Hat
 
-[Original Proposal](https://github.com/kento-mc/wit-2019-compsys-02/blob/master/proposal.md "Projectd Proposal")
+[Original Proposal](https://github.com/kento-mc/wit-2019-compsys-02/blob/master/proposal.md "Project Proposal")
 
 The Toddler Gatekeeper is an IOT solution prototype for monitoring the door of a child's bedroom. It uses the Raspberry Pi and Sense Hat to detect the door of the room being opened, and logs these door-open events to the Wia IOT platform, which then notifies any subscribers via Twitter and/or SMS. This is to allow parents or caregivers to monitor a child trying to leave the room. They can use the built in Wia visualisations to track these door-open events over time. The Raspberry Pi also connects remotely to a database server and adds each door-open event to a local database.
 
