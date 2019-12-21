@@ -8,7 +8,7 @@ The Toddler Gatekeeper is an IOT solution prototype for monitoring the door of a
 The Toddler Gatekeeper also uses the functionality of the Sense Hat to communicate to the children who try to open the door. When arming the Gatekeeper, the user can set a time threshold (e.g. 7:00am) before which, if the Gatekeeper is triggered it will display a message in red and play a recording of the parent/caretaker's voice over a bluetooth speaker, telling the child to get back to bed. Whether a child obeys is beyond the scope of the Gatekeeper's functionality!
 
 
-## Setup and running the Toddler Gatekeeper
+## Setting up and running the Toddler Gatekeeper
 
 Ensure you have the necessary packages for the Sense Hat installed on your Raspberry Pi. To achieve the full functionality you will also need to install the appropriate packages for Wia and mpg123 (see below), as well as installing mysql-server on your laptop or desktop. You will also need to set up accounts on Wia and/or Thingspeak and configure them to communicate with the Raspberry Pi. 
 
